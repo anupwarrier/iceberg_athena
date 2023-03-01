@@ -57,15 +57,15 @@ SELECT * FROM homedetailsin
 
 ```sql
 --populate data to homedetailsall from homedetailsin
-insert into homedetailsall
-select * from homedetailsin
+INSERT INTO homedetailsall
+SELECT * FROM homedetailsin
 ```
 
 7. Run a SELECT query to retrive the data from S3 via Athena to ensure you can retrive the data
 
 ```sql
 --query the data in S3 via Athena for homedetailsall
-select * from homedetailsall
+SELECT * FROM homedetailsall
 ```
 
 8. Explore the S3 bucket homedetailsall to see the partitions that were created and the file in parquet format 
@@ -74,22 +74,22 @@ select * from homedetailsall
 9. Update the table homedetailsall
 
 ```sql
-update homedetailsall
-set value=100000 where home_id=1
+UPDATE homedetailsall
+SET VALUE=100000 WHERE home_id=1
 ```
 
 --update the homedatsilsall table
 
 ```sql
-update homedetailsall
-set value=200000 where home_id=1
+UPDATE homedetailsall
+SET VALUE=200000 WHERE home_id=1
 ```
 
 10. Time travel with snapshots 
 Helps us see how data has changed over a period
 
 ```sql
-SELECT * from "homedetailsall$history"
+SELECT * FROM "homedetailsall$history"
 ```
 
 The result of the query shows how data has changed over a period of time using Snapshots(snapshot_id for ref)
@@ -97,7 +97,7 @@ The result of the query shows how data has changed over a period of time using S
 If we query using a snapshot_id, we can see the data as of that snapshot_id
 
 ```sql
-SELECT * FROM homedetailsall for version as of <snapshot_id here>
+SELECT * FROM homedetailsall for VERSION AS of <snapshot_id here>
 ```
 
 11. Update the csv file simulating changes from the upstream databases & upload the file to S3  homedetailsin bucket. 
