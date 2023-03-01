@@ -1,4 +1,4 @@
-# iceberg_athena
+# Iceberg_Athena - ACID Transactions
 
 ## Purpose
 
