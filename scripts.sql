@@ -1,5 +1,5 @@
 --Create Athena Table
-CREATE EXTERNAL TABLE homedetails_in
+CREATE EXTERNAL TABLE homedetailsin
 (
     home_id bigint,
     home_name string,
@@ -10,5 +10,5 @@ CREATE EXTERNAL TABLE homedetails_in
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
-LOCATION 'S3://homes/homedetails_in/'
+LOCATION 'S3://homedetailsin/'
 TBLPROPERTIES ( 'skip.header.line.count'='1' )
